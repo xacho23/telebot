@@ -12,7 +12,12 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # Основной блок программы
 if __name__ == "__main__":
     # Замените "ВАШ_ТОКЕН" на токен вашего бота, полученный у BotFather
-    application = ApplicationBuilder().token("8086795515:AAFPtxd5U_QS4OwFa9bXEzFp8NfH9Qs4H5I").build()
+    import os
+
+    BOT_TOKEN = os.getenv("BOT_TOKEN")
+    
+    application = ApplicationBuilder().token(BOT_TOKEN).build()
+
 
     # Добавляем обработчики команд
     application.add_handler(CommandHandler("start", start))
